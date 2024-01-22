@@ -113,7 +113,7 @@ function closeFullscreen() {
     var scorm_session_id= session_id; // db generate pag wala (crewId_date_randomnumber);
     if (localStorage) {
         var scormSessionId = scorm_session_id;
-        var scormLastSession = cmiData? JSON.parse(cmiData) : ''; // cmi jsonparse
+        var scormLastSession = cmiData; // cmi jsonparse
 
         if (scormLastSession !== '') {
             localStorage.setItem('Neli_Scorm_' + scormSessionId, scormLastSession);
