@@ -313,7 +313,7 @@ function playScorm(link){
                                 if (device !== "mobile") {
                                     closeFullscreen();
                                 }
-                                
+                                console.log('DONE');
                                 location.href = server+"course/topic/scorm/submit/"+scorm_session_id+"/"+device;
                                 // $.ajax({
                                 //     url: "scorm-test-submit"+scorm_session_id,
