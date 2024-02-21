@@ -130,6 +130,29 @@ function closeFullscreen() {
 
     var student_id=stud_id;
     var student_name=stud_name;
+
+    function watchLocalStorage(key) {
+    // Check if local storage is available
+    if (typeof localStorage !== 'undefined') {
+        // Initial value of the watched key
+        let prevValue = localStorage.getItem(key);
+
+        // Check for changes periodically
+        setInterval(() => {
+        const curValue = localStorage.getItem(key);
+        
+        // If value has changed, log the new value
+        if (curValue !== prevValue) {
+            console.log(`Value of '${key}' changed: ${curValue}`);
+            prevValue = curValue;
+        }
+        }, 1000); // Check every second (adjust as needed)
+    } else {
+        console.log('Local storage is not supported in this browser.');
+    }
+    }
+
+    watchLocalStorage('Neli_Scorm_' + scormSessionId, scormLastSession);
 </script>
 <script>
 
@@ -3341,6 +3364,7 @@ function playScorm(link){
         }, 60 * 1000);
         window.addEventListener('beforeunload', function (e) {
             updateScorm();
+            alert("saved");
 
             
             // alert("By closing this page, your progress will be saved. You can continue your progress later.");
